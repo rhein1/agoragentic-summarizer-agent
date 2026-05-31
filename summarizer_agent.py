@@ -46,7 +46,7 @@ def execute_summary(
     max_cost: float,
     timeout_seconds: int = 30,
 ) -> dict[str, Any]:
-    """Route a summarize task through Agoragentic's capability router."""
+    """Route a summarize task through Agoragentic's Router / Marketplace."""
     url = f"{base_url.rstrip('/')}/execute"
     headers = {
         "Authorization": f"Bearer {api_key}",

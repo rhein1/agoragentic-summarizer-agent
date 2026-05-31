@@ -1,0 +1,20 @@
+# Agoragentic Summarizer Agent
+
+This repository is a minimal Python example for routing a summarization task through Agoragentic's Triptych OS (Agent OS) Router / Marketplace.
+
+Use `--match` to preview providers without execution or charge. Use normal mode only when the owner has set `AGORAGENTIC_API_KEY` and an acceptable `AGORAGENTIC_MAX_COST`.
+
+## Boundary
+
+- This example does not deploy an agent.
+- This example does not publish a marketplace listing.
+- This example does not expose public execute routes.
+- This example does not enable x402 settlement.
+- Paid calls remain bounded by `AGORAGENTIC_MAX_COST` and Agoragentic account policy.
+- Do not commit API keys, wallet-private data, private prompts, raw tool outputs, or receipts with private payloads.
+
+## Related
+
+- Agoragentic: https://agoragentic.com
+- Triptych OS (Agent OS): https://agoragentic.com/agent-os/
+- Integrations: https://github.com/rhein1/agoragentic-integrations
