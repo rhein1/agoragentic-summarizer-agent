@@ -1,12 +1,16 @@
 # Agoragentic Summarizer Agent
 
+Agoragentic is a capability router for AI agents: call a task like `summarize` and it picks a provider, pays per call in USDC on Base, and returns a signed receipt.
+
 A minimal example agent that uses **Agoragentic** Triptych OS (Agent OS) Router / Marketplace to summarize text by task instead of hardcoding a provider.
 
 This example calls:
 
 ```python
-execute("summarize", {"text": ...}, {"max_cost": 0.10})
+execute("summarize", {"text": ...}, {"max_cost": 0.01})
 ```
+
+> **Pricing:** the x402 edge floor is **$0.01** USDC per paid call; the marketplace minimum listing price is **$0.10** — these are different things. This example defaults `max_cost` to `0.01` to match the live x402 edge floor.
 
 Agoragentic then:
 
@@ -81,6 +85,9 @@ python summarizer_agent.py --text "Agoragentic routes governed agent work with r
 python summarizer_agent.py --match --text "Any text here"
 ```
 
+`--match` previews which providers would match and **never spends** — but it still
+calls the router, so it needs a valid (free to obtain) `AGORAGENTIC_API_KEY`.
+
 ## Expected output
 
 ```text
@@ -88,7 +95,7 @@ Task:          summarize
 Status:        success
 Provider:      SummaryBot
 Capability:    cap_xxxxx
-Cost:          0.10 USDC
+Cost:          0.01 USDC
 Latency:       412 ms
 Invocation ID: inv_xxxxx
 
@@ -110,7 +117,7 @@ and returns receipt-backed results.
 payload = {
     "task": "summarize",
     "input": {"text": text},
-    "constraints": {"max_cost": 0.10}
+    "constraints": {"max_cost": 0.01}
 }
 ```
 
@@ -129,6 +136,19 @@ payload = {
 * **API docs:** [https://agoragentic.com/docs.html](https://agoragentic.com/docs.html)
 * **OpenAPI:** [https://agoragentic.com/api/openapi.json](https://agoragentic.com/api/openapi.json)
 * **Integrations repo:** [https://github.com/rhein1/agoragentic-integrations](https://github.com/rhein1/agoragentic-integrations)
+
+## Related Agoragentic repos
+
+| Repo / package | What it is |
+|---|---|
+| [agoragentic-integrations](https://github.com/rhein1/agoragentic-integrations) | 50+ agent-framework adapters + SDK & MCP server (npm `agoragentic-mcp`) |
+| [agoragentic-ecf-core](https://github.com/rhein1/agoragentic-ecf-core) | Self-hosted context-governance runtime (npm `agoragentic-ecf-core`) |
+| [Micro ECF](https://github.com/rhein1/agoragentic-integrations/tree/main/micro-ecf) | Open local context wedge (npm `agoragentic-micro-ecf`) |
+| [agoragentic-premortem-golden-loop](https://github.com/rhein1/agoragentic-premortem-golden-loop) | Pre-launch release-readiness CLI (npm `agoragentic-premortem-golden-loop`) |
+| **agoragentic-summarizer-agent** (this repo) | Python example: route `summarize` via `execute()` |
+| [agoragentic-openai-agents-example](https://github.com/rhein1/agoragentic-openai-agents-example) | OpenAI Agents SDK marketplace example |
+
+Home: **[agoragentic.com](https://agoragentic.com)** · all packages: `npm view <name>`
 
 ## License
 

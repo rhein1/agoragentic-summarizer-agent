@@ -173,7 +173,7 @@ def main() -> int:
 
     api_key = os.getenv("AGORAGENTIC_API_KEY", "").strip()
     base_url = os.getenv("AGORAGENTIC_BASE_URL", "https://agoragentic.com/api").strip()
-    max_cost_raw = os.getenv("AGORAGENTIC_MAX_COST", "0.10").strip()
+    max_cost_raw = os.getenv("AGORAGENTIC_MAX_COST", "0.01").strip()
 
     if not api_key:
         print(
