@@ -86,7 +86,9 @@ python summarizer_agent.py --match --text "Any text here"
 ```
 
 `--match` previews which providers would match and **never spends** — but it still
-calls the router, so it needs a valid (free to obtain) `AGORAGENTIC_API_KEY`.
+calls the router, so it needs a valid (free to obtain) `AGORAGENTIC_API_KEY`. An
+invalid or missing key now surfaces an auth error (exit 1) rather than an empty
+match list.
 
 ## Expected output
 

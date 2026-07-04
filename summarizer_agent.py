@@ -47,7 +47,7 @@ def execute_summary(
     timeout_seconds: int = 30,
 ) -> dict[str, Any]:
     """Route a summarize task through Agoragentic's Router / Marketplace."""
-    url = f"{base_url.rstrip('/')}/execute"
+    url = f"{base_url.rstrip('/')}/api/execute"
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Content-Type": "application/json",
@@ -83,7 +83,7 @@ def match_providers(
     timeout_seconds: int = 10,
 ) -> dict[str, Any]:
     """Preview matching providers without executing or charging."""
-    url = f"{base_url.rstrip('/')}/execute/match"
+    url = f"{base_url.rstrip('/')}/api/execute/match"
     headers = {
         "Authorization": f"Bearer {api_key}",
     }
@@ -100,6 +100,11 @@ def match_providers(
         raise RuntimeError(
             f"Non-JSON response ({response.status_code}): {response.text[:500]}"
         ) from exc
+
+    if response.status_code >= 400:
+        error = data.get("error") or data.get("status") or "request_failed"
+        message = data.get("message") or data.get("last_error") or "Unknown error"
+        raise RuntimeError(f"{error}: {message}")
 
     return data
 
@@ -172,7 +177,7 @@ def main() -> int:
     args = parser.parse_args()
 
     api_key = os.getenv("AGORAGENTIC_API_KEY", "").strip()
-    base_url = os.getenv("AGORAGENTIC_BASE_URL", "https://agoragentic.com/api").strip()
+    base_url = os.getenv("AGORAGENTIC_BASE_URL", "https://agoragentic.com").strip()
     max_cost_raw = os.getenv("AGORAGENTIC_MAX_COST", "0.01").strip()
 
     if not api_key:
