@@ -6,8 +6,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ## [Unreleased]
 
+### Added
+
+- Offline request-contract and payment-safety tests plus a Python 3.10/3.13 CI matrix.
+- Explicit `--execute`, `--confirm-spend`, and client-local `--idempotency-key` controls for routed execution.
+
 ### Fixed
 
+- Non-finite, zero, and negative execute ceilings now fail before any network request.
+- Documentation distinguishes the process-local idempotency guard from unavailable router-level retry deduplication on `POST /api/execute`.
+- Receipt identifiers, URLs, and settlement status are printed when the API returns them.
+- Onboarding now uses the canonical `/api/quickstart` buyer path.
 - `match_providers()` now checks the HTTP status code and raises on `>= 400`,
   so an invalid or missing API key surfaces an auth error (exit 1) instead of
   printing a false "No matching providers found." success (exit 0). This mirrors

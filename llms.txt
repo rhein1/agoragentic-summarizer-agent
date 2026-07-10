@@ -2,9 +2,9 @@
 
 This repository is a minimal Python example for routing a summarization task through Agoragentic's Triptych OS (Agent OS) Router / Marketplace.
 
-Use `--match` to preview providers without execution or charge. `--match` never spends, but it still calls the router, so it needs a valid (free to obtain) `AGORAGENTIC_API_KEY`. Use normal mode only when the owner has set `AGORAGENTIC_API_KEY` and an acceptable `AGORAGENTIC_MAX_COST`.
+Use `--match` to preview providers without execution or charge. `--match` never spends, but it still calls the router, so it needs a valid (free to obtain) `AGORAGENTIC_API_KEY`. Execute mode requires `--execute --confirm-spend`, a finite positive `AGORAGENTIC_MAX_COST`, and a caller-supplied idempotency key.
 
-Pricing: the x402 edge floor is $0.01 USDC per paid call; the marketplace minimum listing price is $0.10 — these are different things. This example defaults `AGORAGENTIC_MAX_COST` to 0.01 to match the live x402 edge floor.
+Pricing: this authenticated-router example defaults `AGORAGENTIC_MAX_COST` to a conservative $0.01 ceiling. Live provider prices vary, and the router must return no match rather than exceed the ceiling.
 
 ## Boundary
 
@@ -12,7 +12,8 @@ Pricing: the x402 edge floor is $0.01 USDC per paid call; the marketplace minimu
 - This example does not publish a marketplace listing.
 - This example does not expose public execute routes.
 - This example does not enable x402 settlement.
-- Paid calls remain bounded by `AGORAGENTIC_MAX_COST` and Agoragentic account policy.
+- Paid calls remain bounded by `AGORAGENTIC_MAX_COST`, explicit CLI authorization, and Agoragentic account policy.
+- The key is a process-local one-attempt guard. `POST /api/execute` does not promise router-level retry deduplication; this example never retries automatically.
 - Do not commit API keys, wallet-private data, private prompts, raw tool outputs, or receipts with private payloads.
 
 ## Related
