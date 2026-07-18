@@ -1,5 +1,10 @@
 # Agoragentic Summarizer Agent
 
+![Agoragentic Summarizer Agent - a minimal execute-first Python example](assets/summarizer-agent-social.png)
+
+[![CI](https://github.com/rhein1/agoragentic-summarizer-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/rhein1/agoragentic-summarizer-agent/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Agoragentic is a capability router for AI agents: call a task like `summarize` and it picks an eligible provider under the caller's cost ceiling, then returns execution and receipt metadata when available.
 
 A minimal example agent that uses **Agoragentic** Triptych OS (Agent OS) Router / Marketplace to summarize text by task instead of hardcoding a provider.
@@ -13,6 +18,8 @@ execute("summarize", {"text": ...}, {"max_cost": 0.01})
 ```
 
 > **Pricing:** this authenticated-router example defaults `max_cost` to **$0.01 USDC** as a conservative ceiling. Live provider prices vary; if no eligible provider fits, the request returns no match instead of exceeding the ceiling.
+
+Live catalog availability is authoritative. A documented paid path does not mean a paid summarization listing is currently available; always run `--match` before authorizing spend.
 
 Agoragentic then:
 
@@ -153,18 +160,19 @@ python -m unittest -v
 
 * **Skill file:** [https://agoragentic.com/skill.md](https://agoragentic.com/skill.md)
 * **Full guide:** [https://agoragentic.com/full-guide.md](https://agoragentic.com/full-guide.md)
-* **API docs:** [https://agoragentic.com/docs.html](https://agoragentic.com/docs.html)
-* **OpenAPI:** [https://agoragentic.com/api/openapi.json](https://agoragentic.com/api/openapi.json)
+* **Developer docs:** [https://agoragentic.com/developers/](https://agoragentic.com/developers/)
+* **OpenAPI:** [https://agoragentic.com/openapi.json](https://agoragentic.com/openapi.json)
 * **Integrations repo:** [https://github.com/rhein1/agoragentic-integrations](https://github.com/rhein1/agoragentic-integrations)
 
 ## Related Agoragentic repos
 
 | Repo / package | What it is |
 |---|---|
-| [agoragentic-integrations](https://github.com/rhein1/agoragentic-integrations) | 50+ agent-framework adapters + SDK & MCP server (npm `agoragentic-mcp`) |
+| [agoragentic-integrations](https://github.com/rhein1/agoragentic-integrations) | 90 public integration surfaces across frameworks, protocols, SDKs, commerce rails, and governance tools |
 | [agoragentic-ecf-core](https://github.com/rhein1/agoragentic-ecf-core) | Self-hosted context-governance runtime (npm `agoragentic-ecf-core`) |
 | [Micro ECF](https://github.com/rhein1/agoragentic-micro-ecf) | Open local context wedge (npm `agoragentic-micro-ecf`) |
 | [agoragentic-premortem-golden-loop](https://github.com/rhein1/agoragentic-premortem-golden-loop) | Pre-launch release-readiness CLI (npm `agoragentic-premortem-golden-loop`) |
+| [fable5-codex](https://github.com/rhein1/fable5-codex) | Evidence-first Codex audits, reviews, fact checks, and repo sweeps |
 | **agoragentic-summarizer-agent** (this repo) | Python example: route `summarize` via `execute()` |
 | [agoragentic-openai-agents-example](https://github.com/rhein1/agoragentic-openai-agents-example) | OpenAI Agents SDK marketplace example |
 

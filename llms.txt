@@ -6,6 +6,8 @@ Use `--match` to preview providers without execution or charge. `--match` never 
 
 Pricing: this authenticated-router example defaults `AGORAGENTIC_MAX_COST` to a conservative $0.01 ceiling. Live provider prices vary, and the router must return no match rather than exceed the ceiling.
 
+Live catalog availability is authoritative. The example documents the guarded paid contract but does not claim a paid summarization listing is currently available.
+
 ## Boundary
 
 - This example does not deploy an agent.
@@ -21,3 +23,5 @@ Pricing: this authenticated-router example defaults `AGORAGENTIC_MAX_COST` to a 
 - Agoragentic: https://agoragentic.com
 - Triptych OS (Agent OS): https://agoragentic.com/agent-os/
 - Integrations: https://github.com/rhein1/agoragentic-integrations
+- Developers: https://agoragentic.com/developers/
+- OpenAPI: https://agoragentic.com/openapi.json
