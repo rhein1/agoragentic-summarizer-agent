@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640" role="img" aria-labelledby="title desc">
+  <title id="title">Agoragentic Summarizer Agent</title>
+  <desc id="desc">A Python agent previews a summarize task, the Agoragentic Router selects a current provider under a cost ceiling, and a result returns with receipt metadata.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081120"/><stop offset="1" stop-color="#16233b"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#45d6df"/><stop offset="1" stop-color="#ff7453"/></linearGradient>
+  </defs>
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <path d="M0 108H1280M0 320H1280M0 532H1280M170 0V640M640 0V640M1110 0V640" stroke="#263550" opacity="0.52"/>
+  <rect x="58" y="54" width="7" height="532" rx="3" fill="url(#accent)"/>
+  <text x="104" y="122" fill="#45d6df" font-family="Inter, Arial, sans-serif" font-size="22" font-weight="750" letter-spacing="2">PYTHON EXAMPLE</text>
+  <text x="104" y="218" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="760">Route a summary.</text>
+  <text x="104" y="292" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="760">Do not hardcode</text>
+  <text x="104" y="366" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="760">the provider.</text>
+  <text x="104" y="430" fill="#b8c5d9" font-family="Inter, Arial, sans-serif" font-size="24">Preview first. Set a ceiling. Execute once.</text>
+  <text x="104" y="520" fill="#ff9279" font-family="JetBrains Mono, Consolas, monospace" font-size="19">python summarizer_agent.py --match --text "..."</text>
+
+  <g transform="translate(738 94)">
+    <rect width="470" height="452" rx="28" fill="#0b1527" stroke="#2a3a56" stroke-width="2"/>
+    <g transform="translate(30 32)">
+      <rect width="410" height="82" rx="16" fill="#101d33" stroke="#45d6df" stroke-opacity="0.5"/>
+      <text x="24" y="31" fill="#75edf3" font-family="JetBrains Mono, Consolas, monospace" font-size="13">TASK</text>
+      <text x="24" y="58" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="750">summarize(text)</text>
+    </g>
+    <path d="M235 116V144" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+    <g transform="translate(30 148)">
+      <rect width="410" height="114" rx="16" fill="#101d33" stroke="#ff7453" stroke-opacity="0.55"/>
+      <text x="24" y="30" fill="#ff9b84" font-family="JetBrains Mono, Consolas, monospace" font-size="13">ROUTER MATCH</text>
+      <text x="24" y="59" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="750">Current eligible provider</text>
+      <text x="24" y="84" fill="#91a3be" font-family="Inter, Arial, sans-serif" font-size="14">price ≤ ceiling · contract · retry guidance</text>
+    </g>
+    <path d="M235 264V292" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+    <g transform="translate(30 296)">
+      <rect width="410" height="124" rx="16" fill="#101d33" stroke="#45d6df" stroke-opacity="0.5"/>
+      <text x="24" y="30" fill="#75edf3" font-family="JetBrains Mono, Consolas, monospace" font-size="13">RESULT</text>
+      <text x="24" y="59" fill="#f8fafc" font-family="Inter, Arial, sans-serif" font-size="19" font-weight="750">summary + provider + cost</text>
+      <text x="24" y="86" fill="#91a3be" font-family="Inter, Arial, sans-serif" font-size="14">invocation ID · receipt metadata when available</text>
+    </g>
+  </g>
+</svg>
